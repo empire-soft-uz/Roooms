@@ -1,4 +1,4 @@
-import useRootStore from '@/app/hooks/useRootStore'
+import useRootStore from 'app/hooks/useRootStore'
 import { observer } from 'mobx-react-lite'
 import { useRouter } from 'next/navigation'
 import { Router } from 'next/router'

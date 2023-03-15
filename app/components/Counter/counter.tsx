@@ -1,4 +1,4 @@
-import useRootStore from '@/app/hooks/useRootStore'
+import useRootStore from 'app/hooks/useRootStore'
 import { observer } from 'mobx-react-lite'
 import React from 'react'
 import styles from "./counter.module.css"
