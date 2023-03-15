@@ -34,16 +34,16 @@ const AllItems = () => {
                             <CardComponent
                                 onPress={() => ShowItemInfo(e as never)}
                                 key={index}
-                                image={e.images[0].image}
-                                name={e.name}
-                                price={e.price}
-                                forr={e.for}
-                                time={e.time}
-                                type={e.type}
-                                size={e.size}
-                                many={e.many}
-                                floor={e.floor}
-                                location={e.location.length >= 34 ? e.location.slice(0, 31) + `...` : e.location}
+                                image={e?.images[0].image}
+                                name={e?.name}
+                                price={e?.price}
+                                forr={e?.for}
+                                time={e?.time}
+                                type={e?.type}
+                                size={e?.size}
+                                many={e?.many}
+                                floor={e?.floor}
+                                location={e?.location.length >= 34 ? e?.location.slice(0, 31) + `...` : e?.location}
                             />
                         )
                     })

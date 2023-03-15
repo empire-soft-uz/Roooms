@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 const Items = () => {
     const { setItem } = useRootStore().itemStore
     const router = useRouter()
-    const ShowItemInfo = (e: []) => {
+    const ShowItemInfo = (e: any) => {
         router.push("/itemInfo")
         localStorage.setItem("item", JSON.stringify(e));
     }
@@ -34,16 +34,16 @@ const Items = () => {
                         <ItemComponent
                             onPress={() => ShowItemInfo(e as never)}
                             key={index}
-                            image={e.images[0].image}
-                            name={e.name}
-                            price={e.price}
-                            forr={e.for}
-                            time={e.time}
-                            type={e.type}
-                            size={e.size}
-                            many={e.many}
-                            floor={e.floor}
-                            location={e.location.length >= 34 ? e.location.slice(0, 31) + `...` : e.location}
+                            image={e?.images[0].image}
+                            name={e?.name}
+                            price={e?.price as any}
+                            forr={e?.for}
+                            time={e?.time}
+                            type={e?.type}
+                            size={e?.size}
+                            many={e?.many}
+                            floor={e?.floor}
+                            location={e?.location.length >= 34 ? e?.location.slice(0, 31) + `...` : e?.location}
                         />
 
                     )

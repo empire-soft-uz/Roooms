@@ -1,16 +1,18 @@
 import useRootStore from '@/app/hooks/useRootStore'
 import { observer } from 'mobx-react-lite'
-import React from 'react'
-import Modal from 'react-modal'
+import { useEffect } from 'react'
 import InfoItem from '../../InfoItem/infoItem'
 import MainModal from '../MainModal/mainModal'
-import RowItem from '../../RowItem.tsx/rowItem'
-import Title from '../../Title/title'
 import styles from "./allAmenitiesModal.module.css"
 
 const AllAmenitiesModal = () => {
-    const item = localStorage.getItem("item")
-    const itemData = JSON.parse(item as string)
+
+    let item: any
+
+    useEffect(() => {
+        item = localStorage.getItem("item")
+    }, [])
+    // const itemData = JSON.parse(item as string)
     const { show, hide, visiable } = useRootStore().visibleStore
     return (
         <MainModal
@@ -20,23 +22,23 @@ const AllAmenitiesModal = () => {
         >
             <div className={styles.container}>
                 <InfoItem
-                    url={itemData.entireIcon}
-                    title={itemData.entire}
-                    text={itemData.entireText}
+                    url={item?.entireIcon}
+                    title={item?.entire}
+                    text={item?.entireText}
                 />
                 <InfoItem
-                    url={itemData.cleanIcon}
-                    title={itemData.clean}
-                    text={itemData.cleanText}
+                    url={item?.cleanIcon}
+                    title={item?.clean}
+                    text={item?.cleanText}
                 />
                 <InfoItem
-                    url={itemData.selfIcon}
-                    title={itemData.self}
-                    text={itemData.selfText}
+                    url={item?.selfIcon}
+                    title={item?.self}
+                    text={item?.selfText}
                 />
                 <InfoItem
-                    url={itemData.freeIcon}
-                    title={itemData.free}
+                    url={item?.freeIcon}
+                    title={item?.free}
                 />
             </div>
         </MainModal>
