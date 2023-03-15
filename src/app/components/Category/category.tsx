@@ -1,4 +1,4 @@
-import useRootStore from 'app/hooks/useRootStore'
+import useRootStore from '@/app/hooks/useRootStore'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import styles from "./category.module.css"

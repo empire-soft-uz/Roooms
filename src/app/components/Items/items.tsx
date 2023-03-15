@@ -1,5 +1,5 @@
 'use client'
-import useRootStore from 'app/hooks/useRootStore'
+import useRootStore from '@/app/hooks/useRootStore';
 import Link from 'next/link'
 import React, { useEffect } from 'react'
 import { observer } from 'mobx-react-lite';

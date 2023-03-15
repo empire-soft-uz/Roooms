@@ -3,9 +3,9 @@ import React, { CSSProperties, useState } from 'react'
 import Button from '../Button/button'
 import styles from "./contactForm.module.css"
 import InputMask from 'react-input-mask';
-import useRootStore from 'app/hooks/useRootStore';
+import useRootStore from '@/app/hooks/useRootStore';
 import { observer } from 'mobx-react-lite';
-import { Notifocation } from 'app/store/Notofication';
+import { Notifocation } from '@/app/store/Notofication';
 import axios from 'axios';
 interface Props {
     btnStyle?: CSSProperties;
