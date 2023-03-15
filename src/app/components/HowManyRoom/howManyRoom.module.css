@@ -1,0 +1,21 @@
+.box{
+    display: flex;
+    margin: 3px 0;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.box p {
+    font-weight: 300;
+    font-size: 14px;
+    font-family: "NunitoSansLight";
+}
+
+.dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #000;
+    margin: 0 5px;
+}

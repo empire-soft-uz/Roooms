@@ -1,0 +1,125 @@
+.container {
+    margin: 40px 10%;
+    background: #F9FBFF;
+    border-radius: 30px;
+    padding: 30px 60px;
+    /* height: 400px; */
+    cursor: pointer;
+}
+
+.topBox{
+    height: 40%;
+}
+
+.topBox h1 {
+    display: flex;
+    align-items:center;
+    font-weight: 500;
+    font-size: 28px;
+}
+.topBox p {
+    color: #AEAEAE;
+    margin-top: 20px;
+    margin-left: 65px;
+    font-weight: 300;
+    font-size: 13px;
+}
+.line{
+    width: 50px !important;
+    height: 2px;
+    background-color: #000;
+    margin-right: 15px;
+}
+.contentBox{
+    display: grid;
+    /* height: 60%; */
+    overflow: scroll;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90%;
+}
+
+.content img{ 
+    width: 220px;
+    height: 140px;
+}
+
+@media (min-width: 100px) {
+    .container{
+        margin: 20px 5%;
+        padding: 20px 40px; 
+    }
+    .contentBox {
+        padding: 20px 0px;
+    }
+    .topBox p {
+        margin-left: 0px;
+    }
+}
+@media (min-width: 576px) {
+    
+}
+@media (min-width: 768px) {
+    
+}
+@media (min-width: 992px) {
+    
+}
+@media (min-width: 992px) {
+    .container {
+    margin: 40px 10%;
+    background: #F9FBFF;
+    border-radius: 30px;
+    padding: 30px 60px;
+    /* height: 400px; */
+}
+
+.topBox{
+    height: 40%;
+}
+
+.topBox h1 {
+    display: flex;
+    align-items:center;
+    font-weight: 500;
+    font-size: 28px;
+}
+.topBox p {
+    color: #AEAEAE;
+    margin-top: 20px;
+    margin-left: 65px;
+    font-weight: 300;
+    font-size: 13px;
+}
+.line{
+    width: 50px !important;
+    height: 2px;
+    background-color: #000;
+    margin-right: 15px;
+}
+.contentBox{
+    display: grid;
+    /* height: 60%; */
+    overflow: scroll;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90%;
+}
+
+.content img{ 
+    width: 220px;
+    height: 140px;
+}
+}

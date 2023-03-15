@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+
+.leftBox{
+    display: flex;
+    align-items: center;
+}
+.leftBox p{
+    color: #AEAEAE;
+}
+.rightBox{
+    display: flex;
+    align-items: center;
+}
+
+.rightBox p {
+    border-bottom: 1px solid #000;
+    font-size: 14px;
+}

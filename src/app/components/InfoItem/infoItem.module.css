@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.textBox {
+    margin-left: 8px;
+}
+
+.text {
+    color: #6B7280;
+    font-weight: 300;
+    font-size: 12px;
+}

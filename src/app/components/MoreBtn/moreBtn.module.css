@@ -1,0 +1,15 @@
+.box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box p{
+    border-bottom: 1px solid #000;
+    font-size: 14px;
+}
+
+.box img {
+    margin-left: 5px;
+}

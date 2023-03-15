@@ -1,0 +1,127 @@
+.rightBox {
+    width: 100%;
+    height: 440px;
+    display: flex;
+    justify-content: center;
+}
+
+.formBox {
+    width: 90%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 10%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.formBox input {
+    border: none;
+    padding: 5px 10px;
+    height: 45px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
+
+}
+.formBox textarea {
+   resize: none;
+   border: none;
+   padding: 10px;
+   border-radius: 5px;
+    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
+
+}
+
+.formBox button:hover{
+    opacity: 0.8;
+}
+
+.loading {
+    width: 70%;
+    height: 70%;
+    animation-name: spin;
+    animation-duration: 800ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media(min-width: 120px){
+    .rightBox{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .leftBox{
+        width: 100%;
+    }
+    .formBox{
+        width: 100%;
+        padding: 20px 5%;
+    }
+    .formBox button {
+        margin-top: 20px;
+    }
+}
+@media (min-width: 992px) {
+    .rightBox {
+        width: 100%;
+        height: 460px;
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .formBox {
+        width: 90%;
+        height: 100%;
+        /* background-color: #F9FBFF; */
+        box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px 10%;
+    }
+
+    .form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form label {
+        margin-bottom: 3px;
+    }
+
+    .formBox input {
+        border: none;
+        padding: 5px 10px;
+        height: 45px;
+        border-radius: 5px;
+    }
+    .formBox textarea {
+    resize: none;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    }
+
+    .formBox button:hover{
+        opacity: 0.8;
+    }
+}
