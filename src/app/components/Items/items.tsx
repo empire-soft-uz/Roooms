@@ -10,11 +10,11 @@ import { useRouter } from 'next/navigation';
 
 
 const Items = () => {
-    const { setItem } = useRootStore().itemStore
+    const { SetOneRoomItem } = useRootStore().itemStore
     const router = useRouter()
     const ShowItemInfo = (e: any) => {
         router.push("/itemInfo")
-        localStorage.setItem("item", JSON.stringify(e));
+        SetOneRoomItem(e)
     }
 
     return (

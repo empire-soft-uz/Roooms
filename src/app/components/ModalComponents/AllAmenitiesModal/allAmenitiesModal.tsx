@@ -7,12 +7,9 @@ import styles from "./allAmenitiesModal.module.css"
 
 const AllAmenitiesModal = () => {
 
-    let item: any
+    const { oneRoomItemData: item } = useRootStore().itemStore
 
-    useEffect(() => {
-        item = localStorage.getItem("item")
-    }, [])
-    // const itemData = JSON.parse(item as string)
+
     const { show, hide, visiable } = useRootStore().visibleStore
     return (
         <MainModal

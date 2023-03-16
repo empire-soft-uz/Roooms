@@ -10,7 +10,6 @@ import Contact from "./components/Contact/contact"
 import Footer from "./components/Footer/footer"
 import Header from "./components/Header/header"
 import Items from "./components/Items/items";
-import MoreTextModal from "./components/ModalComponents/MoreTextModal/moreTextModal";
 
 const Home = () => {
   return (

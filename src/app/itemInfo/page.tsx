@@ -1,41 +1,49 @@
 'use client'
+
+import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
-import React, { useEffect } from 'react'
-import { ItemsType } from '../allData'
-import AllAmenitiesModal from '../components/ModalComponents/AllAmenitiesModal/allAmenitiesModal'
+import Script from "next/script"
+import { useEffect } from 'react'
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
 import BookingBox from '../components/BookingBox/bookingBox'
 import Button from '../components/Button/button'
 import Carusel from '../components/Carusel/carusel'
 import ContactForm from '../components/ContactForm/contactForm'
-import ContactModal from '../components/ModalComponents/ContactModal/contactModal'
 import Footer from '../components/Footer/footer'
 import Header from '../components/Header/header'
 import HowManyRoom from '../components/HowManyRoom/howManyRoom'
 import InfoItem from '../components/InfoItem/infoItem'
-import MainModalModal from '../components/ModalComponents/MainModal/mainModal'
-import MoreBtn from '../components/MoreBtn/moreBtn'
+import AllAmenitiesModal from '../components/ModalComponents/AllAmenitiesModal/allAmenitiesModal'
+import ContactModal from '../components/ModalComponents/ContactModal/contactModal'
 import MoreTextModal from '../components/ModalComponents/MoreTextModal/moreTextModal'
 import ReserveModal from '../components/ModalComponents/ReserveModal/reserveModal'
+import MoreBtn from '../components/MoreBtn/moreBtn'
 import RowItem from '../components/RowItem.tsx/rowItem'
 import Text from '../components/Text/text'
 import Title from '../components/Title/title'
 import useRootStore from '../hooks/useRootStore'
 import styles from "./itemInfo.module.css"
-import { ToastContainer } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
-import Script from "next/script"
 
 const ItemInfo = () => {
-    // const { oneItem } = useRootStore().itemStore
-    let itemData: any
+
+    const { oneRoomItemData, getOneRoomItem, isLoading } = useRootStore().itemStore
+
+    console.log(toJS(oneRoomItemData));
 
     useEffect(() => {
-        itemData = JSON.parse(localStorage.getItem("item") as never)
+        getOneRoomItem()
     }, [])
 
     const { show } = useRootStore().visibleStore
     const { dayCount } = useRootStore().itemStore
-    var total = dayCount.day * Number(itemData?.price as any)
+    var total = dayCount.day * Number(oneRoomItemData.price as any)
+
+    if (isLoading) {
+        return (
+            <div>Loading...</div>
+        )
+    }
 
     return (
         <>
@@ -58,30 +66,30 @@ const ItemInfo = () => {
                         <Carusel />
                     </div>
                     <div className={styles.rightBox}>
-                        <Title title={itemData?.name} />
+                        <Title title={oneRoomItemData.name} />
                         <HowManyRoom
-                            room={itemData?.room}
-                            kitchen={itemData?.kitchen}
-                            bedroom={itemData?.bedroom}
-                            hall={itemData?.hall}
+                            room={oneRoomItemData.room}
+                            kitchen={oneRoomItemData.kitchen}
+                            bedroom={oneRoomItemData.bedroom}
+                            hall={oneRoomItemData.hall}
                         />
-                        <h3>{itemData?.price + ` $ `}<span className={styles.time}> {itemData?.time ? ` / ` + itemData?.time : null}</span></h3>
-                        {itemData?.squarePrice ?
-                            <p className={styles.text}>{itemData?.squarePrice} $ / m<sup>2</sup></p>
+                        <h3>{oneRoomItemData.price + ` $ `}<span className={styles.time}> {oneRoomItemData.time ? ` / ` + oneRoomItemData.time : null}</span></h3>
+                        {oneRoomItemData.squarePrice ?
+                            <p className={styles.text}>{oneRoomItemData.squarePrice} $ / m<sup>2</sup></p>
                             : null
                         }
                         <RowItem
-                            title={itemData?.owner}
+                            title={oneRoomItemData.owner}
                             text="Kontaktlar"
                             clickBtn={() => show("contact")}
                         />
                         <Text
                             style={{ marginTop: "15px", fontFamily: "NunitoSansLight" }}
-                            text={itemData?.text.length >= 350 ? itemData?.text.slice(0, 347) + ` ...` : itemData?.text}
+                            text={oneRoomItemData.text?.length >= 350 ? oneRoomItemData.text.slice(0, 347) + ` ...` : oneRoomItemData.text}
                         />
                         <MoreBtn onPress={() => show("moreText")} title='Show more' style={{ marginTop: "20px" }} />
                         <RowItem
-                            title={itemData?.location ? itemData?.location : "Camchatka, Russia"}
+                            title={oneRoomItemData.location ? oneRoomItemData.location : "Camchatka, Russia"}
                             leftUrl="/icons/place.svg"
                             text='Xaritadan ko’rish'
                             style={{ marginTop: "20px" }}
@@ -94,79 +102,79 @@ const ItemInfo = () => {
                         <div className={styles.place}>
                             <Title title='What this place offers' style={{ marginBottom: "15px" }} />
                             <InfoItem
-                                url={itemData?.entireIcon}
-                                title={itemData?.entire}
-                                text={itemData?.entireText}
+                                url={oneRoomItemData.entireIcon}
+                                title={oneRoomItemData.entire}
+                                text={oneRoomItemData.entireText}
                             />
                             <InfoItem
-                                url={itemData?.cleanIcon}
-                                title={itemData?.clean}
-                                text={itemData?.cleanText}
+                                url={oneRoomItemData.cleanIcon}
+                                title={oneRoomItemData.clean}
+                                text={oneRoomItemData.cleanText}
                             />
                             <InfoItem
-                                url={itemData?.selfIcon}
-                                title={itemData?.self}
-                                text={itemData?.selfText}
+                                url={oneRoomItemData.selfIcon}
+                                title={oneRoomItemData.self}
+                                text={oneRoomItemData.selfText}
                             />
                             <InfoItem
-                                url={itemData?.freeIcon}
-                                title={itemData?.free}
+                                url={oneRoomItemData.freeIcon}
+                                title={oneRoomItemData.free}
                             />
                         </div>
                         <Title title='What this place offers' style={{ marginTop: "30px" }} />
                         <div className={styles.rowBox}>
                             <div>
                                 <InfoItem
-                                    url={itemData?.gardenIcon}
-                                    title={itemData?.garden}
+                                    url={oneRoomItemData.gardenIcon}
+                                    title={oneRoomItemData.garden}
                                 />
                                 <InfoItem
-                                    url={itemData?.wifiIcon}
-                                    title={itemData?.wifi}
+                                    url={oneRoomItemData.wifiIcon}
+                                    title={oneRoomItemData.wifi}
                                 />
                                 <InfoItem
-                                    url={itemData?.washerIcon}
-                                    title={itemData?.washer}
+                                    url={oneRoomItemData.washerIcon}
+                                    title={oneRoomItemData.washer}
                                 />
                                 <InfoItem
-                                    url={itemData?.airIcon}
-                                    title={itemData?.air}
+                                    url={oneRoomItemData.airIcon}
+                                    title={oneRoomItemData.air}
                                 />
                                 <InfoItem
-                                    url={itemData?.refrigeratorIcon}
-                                    title={itemData?.refrigerator}
+                                    url={oneRoomItemData.refrigeratorIcon}
+                                    title={oneRoomItemData.refrigerator}
                                 />
                             </div>
                             <div>
                                 <InfoItem
-                                    url={itemData?.kitIcon}
-                                    title={itemData?.kit}
+                                    url={oneRoomItemData.kitIcon}
+                                    title={oneRoomItemData.kit}
                                 />
                                 <InfoItem
-                                    url={itemData?.petsIcon}
-                                    title={itemData?.pets}
+                                    url={oneRoomItemData.petsIcon}
+                                    title={oneRoomItemData.pets}
                                 />
                                 <InfoItem
-                                    url={itemData?.dryerIcon}
-                                    title={itemData?.dryer}
+                                    url={oneRoomItemData.dryerIcon}
+                                    title={oneRoomItemData.dryer}
                                 />
                                 <InfoItem
-                                    url={itemData?.cameraIcon}
-                                    title={itemData?.camera}
+                                    url={oneRoomItemData.cameraIcon}
+                                    title={oneRoomItemData.camera}
                                 />
                                 <InfoItem
-                                    url={itemData?.bikeIcon}
-                                    title={itemData?.bike}
+                                    url={oneRoomItemData.bikeIcon}
+                                    title={oneRoomItemData.bike}
                                 />
                             </div>
                         </div>
                         <Button onPress={() => show("amenities")} title='Show all 37 amenities' style={{ backgroundColor: "#fff", fontSize: "16px", boxShadow: "none", border: "1px solid #000", color: "#000" }} />
                     </div>
                     <div className={styles.filter}>
-                        {itemData?.for === "Dam olish" ?
+                        {oneRoomItemData.for === "Dam olish" ?
                             <BookingBox
-                                price={`$ ` + itemData?.price}
-                                time={itemData?.time}
+                                price={`$ ` + oneRoomItemData.price}
+                                time={oneRoomItemData.time}
                                 total={`$ ` + total}
                                 clickBtn={() => show("reserve")}
                             /> :

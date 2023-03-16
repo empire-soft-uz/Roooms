@@ -2,20 +2,19 @@
 
 import useRootStore from '@/app/hooks/useRootStore'
 import { observer } from 'mobx-react-lite'
+import { useRouter } from 'next/navigation'
 import Footer from '../components/Footer/footer'
 import Header from '../components/Header/header'
 import CardComponent from '../components/ItemComponent/itemComponent'
-import styles from "./allItems.module.css"
-import { ItemsData } from '../allData'
-import { useRouter } from 'next/navigation'
 import Text from '../components/Text/text'
+import styles from "./allItems.module.css"
 
 const AllItems = () => {
-    const { data } = useRootStore().itemStore;
+    const { AllProducts, SetOneRoomItem } = useRootStore().itemStore;
     const router = useRouter()
-    const ShowItemInfo = (e: []) => {
+    const ShowItemInfo = (e: any) => {
         router.push("/itemInfo")
-        localStorage.setItem("item", JSON.stringify(e));
+        SetOneRoomItem(e)
     }
     return (
         <>
@@ -28,8 +27,8 @@ const AllItems = () => {
                 </div>
             </div>
             <div className={styles.content} >
-                {data ?
-                    data?.map((e: any, index: number) => {
+                {AllProducts?.length > 0 ?
+                    AllProducts?.map((e: any, index: number) => {
                         return (
                             <CardComponent
                                 onPress={() => ShowItemInfo(e as never)}
