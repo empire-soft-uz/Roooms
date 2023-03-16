@@ -27,16 +27,15 @@
     padding: 5px 10px;
     height: 45px;
     border-radius: 5px;
-    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.25);
 
 }
 .formBox textarea {
-   resize: none;
-   border: none;
-   padding: 10px;
-   border-radius: 5px;
-    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
-
+    resize: none;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.25);
 }
 
 .formBox button:hover{
@@ -115,10 +114,10 @@
         border-radius: 5px;
     }
     .formBox textarea {
-    resize: none;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
+        resize: none;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
     }
 
     .formBox button:hover{

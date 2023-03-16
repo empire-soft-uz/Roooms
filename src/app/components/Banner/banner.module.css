@@ -31,9 +31,8 @@
     grid-template-columns: 1fr 1fr 1fr 0.5fr;
     align-items: center;
     position: absolute;
-    /* padding: 30px 15px; */
+    padding: 0 20px;
     gap: 10px;
-    /* bottom: 50px; */
     height: 12vh;
     width: 57%;
     background: rgba(255, 255, 255, 0.9);

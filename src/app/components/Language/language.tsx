@@ -1,29 +1,32 @@
+'use client'
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import { useTranslation } from 'react-i18next';
+import styles from "./language.module.css"
 
 const ChooseLanguage = () => {
     const { t, i18n } = useTranslation();
-    const changeLanguage = (lng: any) => {
+    // const { locales } = useRouter()
+    const changeLanguage = (lng: string) => {
         i18n.changeLanguage(lng);
+        console.log(lng);
     };
     return (
         <div>
             <select
-                style={{
-                    border: "none", outline: "none",
-                    width: "50px",
-                    color: "#AEAEAE",
-                    cursor: "pointer",
-                    marginRight: "30px"
-                }}
-
+                className={styles.selectBox}
+            // onChange={(e) => changeLanguage(e.target.value)}
             >
                 <option
-                    value="uzb">
+                    value="uzb"
+                    onClick={() => changeLanguage('uzb')}
+                >
                     UZB
                 </option>
                 <option
-                    value="rus">
+                    value="rus"
+                    onClick={() => changeLanguage('rus')}
+                >
                     RUS
                 </option>
             </select>
