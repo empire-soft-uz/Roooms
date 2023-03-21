@@ -3,11 +3,13 @@ import { observer } from 'mobx-react-lite'
 import { useRouter } from 'next/navigation'
 import { Router } from 'next/router'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import Counter from '../Counter/counter'
 import DropDown from '../DropDown/dropDown'
 import styles from "./banner.module.css"
 
 const Banner = () => {
+    const { t } = useTranslation();
     const { oneItem, setItem } = useRootStore().itemStore
     const router = useRouter()
     function SearRoomNavigation() {
@@ -25,32 +27,31 @@ const Banner = () => {
                         <div className={styles.iconBox}>
                             <img src="/icons/location.svg" alt="l" />
                         </div>
-                        <h2>Manzil</h2>
+                        <h2>{t("location")}</h2>
                     </div>
-                    <input onChange={(e) => setItem(e.target.value as never, "address")} type="text" placeholder='Joylashgan manzilini yozing' />
+                    <input
+                        onChange={(e) => setItem(e.target.value as never, "address")}
+                        type="text"
+                        placeholder={`${t("search_by_location")}`}
+                    />
                 </div>
                 <div className={styles.box}>
                     <div className={styles.filterBox}>
                         <div className={styles.iconBox}>
                             <img src="/icons/calendar.svg" alt="" />
                         </div>
-                        <h2>Turi</h2>
+                        <h2>{t("type")}</h2>
                     </div>
                     <DropDown />
-                    {/* <p>
-                        Turni tanlang
-                        <img style={{ marginLeft: "5px", }} src="/icons/arrow-down.svg" alt="" />
-                    </p> */}
                 </div>
                 <div className={styles.boxOne}>
                     <div className={styles.filterBox}>
                         <div className={styles.iconBox}>
                             <img src="/icons/doorBlue.svg" alt="" />
                         </div>
-                        <h2>Xonalar</h2>
+                        <h2>{t("rooms")}</h2>
                     </div>
                     <Counter />
-                    {/* <p><span className={styles.calcu}>-</span> Xona qo’shish <span className={styles.calcu}>+</span></p> */}
                 </div>
                 <div className={styles.searchBox} onClick={() => SearRoomNavigation()} >
                     <img src="/icons/search.svg" alt="" />

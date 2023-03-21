@@ -110,7 +110,7 @@
         flex-direction: row;
     }
     .filter {
-        width: 50%;
+        width: 100%;
     }
     .content {
         grid-template-columns: 60% 40%;

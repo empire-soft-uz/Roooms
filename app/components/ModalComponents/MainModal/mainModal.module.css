@@ -41,6 +41,7 @@
         height: 100%;
         padding: 20px;
         overflow-x: scroll;
+        border-radius: 0;
     }
 }
 @media (min-width: 576px){

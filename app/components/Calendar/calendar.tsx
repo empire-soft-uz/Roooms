@@ -18,9 +18,9 @@ const Calendar = () => {
   setDay(count)
 
   return (
-    <Provider minWidth={"100%"} minHeight={"100%"} colorScheme={'light'} theme={defaultTheme}>
+    <Provider minWidth={"100%"} colorScheme={'light'} theme={defaultTheme}>
       <DateRangePicker
-        height="100%"
+        // height="100%"
         width="100%"
         aria-label='date picker'
         //@ts-ignore

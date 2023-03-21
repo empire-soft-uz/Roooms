@@ -27,7 +27,7 @@ const Home = () => {
         theme='light'
       />
       <div style={{ width: "100vw" }}>
-        <Header />
+        <Header logoLink="#" contactLink="#contact" />
         <div style={{ marginTop: "10vh" }}>
           <Banner />
           <Category />
@@ -36,11 +36,11 @@ const Home = () => {
           <Footer />
         </div>
       </div>
-      <Script
+      {/* <Script
         id="yandexx"
         src='./script.js'
         strategy="lazyOnload"
-      />
+      /> */}
     </>
   )
 }

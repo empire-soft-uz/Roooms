@@ -11,13 +11,11 @@ body {
 }
 .spectrum-InputGroup_a0942f {
   height: 50px;
-  /* border: 1px solid red; */
   align-items: center;
 }
 .spectrum-Textfield-input_73bc77{
   height: 50px;
   font-size: 16px;
-  /* border-radius: 15px; */
 }
 .spectrum-FieldButton_e2d99e{
   height: 50px;
@@ -28,7 +26,6 @@ body {
   border-radius: 15px;
 }
 .spectrum_b37d53 {
-  /* background-color: red; */
 }
 .spectrum-Dialog-grid_6d8b48{
   z-index: 100;

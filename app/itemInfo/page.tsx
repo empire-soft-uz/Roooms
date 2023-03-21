@@ -60,7 +60,7 @@ const ItemInfo = () => {
                 theme='light'
             />
             <div>
-                <Header />
+                <Header logoLink='/#' contactLink='/#contact' />
                 <div className={styles.container}>
                     <div className={styles.leftBox}>
                         <Carusel />
