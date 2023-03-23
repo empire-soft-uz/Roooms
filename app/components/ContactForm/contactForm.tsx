@@ -7,6 +7,7 @@ import useRootStore from 'app/hooks/useRootStore';
 import { observer } from 'mobx-react-lite';
 import { Notifocation } from 'app/store/Notofication';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 interface Props {
     btnStyle?: CSSProperties;
 }
@@ -15,6 +16,7 @@ interface Props {
 const ContactForm: React.FC<Props> = ({
     btnStyle
 }) => {
+    const { t } = useTranslation()
     const [loading, setLoading] = useState(false)
     const { setForm, form, clearForm } = useRootStore().contactStore
 
@@ -53,17 +55,17 @@ const ContactForm: React.FC<Props> = ({
         <div className={styles.rightBox}>
             <div className={styles.formBox}>
                 <div className={styles.form}>
-                    <label>Ism</label>
+                    <label>{t("name")}</label>
                     <input
                         name='name'
                         value={form.name}
                         onChange={(e) => setForm(e.target.value, "name")}
                         type="text"
-                        placeholder='Ismingizni kiriting'
+                        placeholder={`${t("enter_name")}`}
                     />
                 </div>
                 <div className={styles.form} style={{ marginTop: "15px" }}>
-                    <label>Telefon raqam</label>
+                    <label>{t("phone_number")}</label>
                     <InputMask
                         className={styles.numberInput}
                         mask="+ \9\98 99 999 99 99"
@@ -75,12 +77,12 @@ const ContactForm: React.FC<Props> = ({
                     />
                 </div>
                 <div className={styles.form} style={{ marginTop: "15px" }}>
-                    <label>Izoh</label>
+                    <label>{t("comment")}</label>
                     <textarea
                         name="message"
                         id="message"
                         value={form.comment}
-                        placeholder='Izoh qoldiring'
+                        placeholder={`${t("enter_comment")}`}
                         rows={4}
                         onChange={(e) => setForm(e.target.value, 'comment')}
                     ></textarea>
@@ -88,7 +90,7 @@ const ContactForm: React.FC<Props> = ({
                 <Button
                     style={{ width: "100%", ...btnStyle }}
                     title={
-                        loading ? <img src='/icons/Loader.svg' className={styles.loading} /> : "Jo'natish"
+                        loading ? <img src='/icons/Loader.svg' className={styles.loading} /> : `${t("send")}`
                     }
                     onPress={sendEmail}
                 />

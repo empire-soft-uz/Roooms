@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import Button from '../Button/button';
 import Calendar from '../Calendar/calendar';
 import styles from "./bookingBox.module.css"
@@ -16,6 +17,7 @@ const BookingBox: React.FC<Props> = ({
     time,
     clickBtn,
 }) => {
+    const { t } = useTranslation()
     return (
         <div className={styles.container}>
             <div className={styles.price}>
@@ -32,7 +34,7 @@ const BookingBox: React.FC<Props> = ({
                         width: "100%",
                         margin: "0"
                     }}
-                    title='Reserve'
+                    title={`${t("booking")}`}
                     onPress={clickBtn}
                 />
             </div>

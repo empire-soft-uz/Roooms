@@ -4,6 +4,7 @@ import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import Script from "next/script"
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
 import BookingBox from '../components/BookingBox/bookingBox'
@@ -26,7 +27,7 @@ import useRootStore from '../hooks/useRootStore'
 import styles from "./itemInfo.module.css"
 
 const ItemInfo = () => {
-
+    const { t } = useTranslation()
     const { oneRoomItemData, getOneRoomItem, isLoading } = useRootStore().itemStore
 
     console.log(toJS(oneRoomItemData));
@@ -80,27 +81,27 @@ const ItemInfo = () => {
                         }
                         <RowItem
                             title={oneRoomItemData.owner}
-                            text="Kontaktlar"
+                            text={`${t("vendor_contacts")}`}
                             clickBtn={() => show("contact")}
                         />
                         <Text
                             style={{ marginTop: "15px", fontFamily: "NunitoSansLight" }}
                             text={oneRoomItemData.text?.length >= 350 ? oneRoomItemData.text.slice(0, 347) + ` ...` : oneRoomItemData.text}
                         />
-                        <MoreBtn onPress={() => show("moreText")} title='Show more' style={{ marginTop: "20px" }} />
+                        <MoreBtn onPress={() => show("moreText")} title={`${t("see_all")}`} style={{ marginTop: "20px" }} />
                         <RowItem
                             title={oneRoomItemData.location ? oneRoomItemData.location : "Camchatka, Russia"}
                             leftUrl="/icons/place.svg"
-                            text='Xaritadan ko’rish'
+                            text={`${t("view_on_the_map")}`}
                             style={{ marginTop: "20px" }}
                         />
-                        <Button title="Ko' rib chiqish" />
+                        <Button title={`${t("review")}`} />
                     </div>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.comforts}>
                         <div className={styles.place}>
-                            <Title title='What this place offers' style={{ marginBottom: "15px" }} />
+                            <Title title={`${t("place_offers")}`} style={{ marginBottom: "15px" }} />
                             <InfoItem
                                 url={oneRoomItemData.entireIcon}
                                 title={oneRoomItemData.entire}
@@ -121,7 +122,7 @@ const ItemInfo = () => {
                                 title={oneRoomItemData.free}
                             />
                         </div>
-                        <Title title='What this place offers' style={{ marginTop: "30px" }} />
+                        <Title title={`${t("place_offers")}`} style={{ marginTop: "30px" }} />
                         <div className={styles.rowBox}>
                             <div>
                                 <InfoItem
@@ -168,7 +169,7 @@ const ItemInfo = () => {
                                 />
                             </div>
                         </div>
-                        <Button onPress={() => show("amenities")} title='Show all 37 amenities' style={{ backgroundColor: "#fff", fontSize: "16px", boxShadow: "none", border: "1px solid #000", color: "#000" }} />
+                        <Button onPress={() => show("amenities")} title={`${t("all_amenities")}`} style={{ backgroundColor: "#fff", fontSize: "16px", boxShadow: "none", border: "1px solid #000", color: "#000" }} />
                     </div>
                     <div className={styles.filter}>
                         {oneRoomItemData.for === "Dam olish" ?

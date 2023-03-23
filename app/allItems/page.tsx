@@ -3,6 +3,7 @@
 import useRootStore from 'app/hooks/useRootStore'
 import { observer } from 'mobx-react-lite'
 import { useRouter } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
 import Footer from '../components/Footer/footer'
 import Header from '../components/Header/header'
 import CardComponent from '../components/ItemComponent/itemComponent'
@@ -11,6 +12,7 @@ import styles from "./allItems.module.css"
 
 const AllItems = () => {
     const { AllProducts, SetOneRoomItem } = useRootStore().itemStore;
+    const { t } = useTranslation()
     const router = useRouter()
     const ShowItemInfo = (e: any) => {
         router.push("/itemInfo")
@@ -18,12 +20,12 @@ const AllItems = () => {
     }
     return (
         <>
-            <Header />
+            <Header contactLink='/#contact' logoLink='/#' />
             <div className={styles.category}>
-                <h1>Category you choosed</h1>
+                <h1>{t("category_you_choosed")}</h1>
                 <div className={styles.filter}>
-                    <button>Sotiladi</button>
-                    <button>Ijaraga beriladi</button>
+                    <button>{t("sold")}</button>
+                    <button>{t("for_rent")}</button>
                 </div>
             </div>
             <div className={styles.content} >
@@ -47,7 +49,7 @@ const AllItems = () => {
                         )
                     })
                     :
-                    <Text text='Xechnarsa topilmadi!' />
+                    <Text text={`${t("nothing_found")}`} />
                 }
             </div>
             <Footer />

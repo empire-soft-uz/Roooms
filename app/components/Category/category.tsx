@@ -1,10 +1,12 @@
 import useRootStore from 'app/hooks/useRootStore'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import styles from "./category.module.css"
 
 const Category = () => {
     const router = useRouter()
+    const { t } = useTranslation()
     const { setItem } = useRootStore().itemStore
     function FilterItem(value: any) {
         setItem(value, 'type')
@@ -15,10 +17,10 @@ const Category = () => {
             <div className={styles.topBox}>
                 <h1>
                     <div className={styles.line}></div>
-                    Category
+                    {t("category")}
                 </h1>
-                <p>Bo’lajak xonadongizni uzoq vaqt qidirishingiz shart <br />
-                    emas. Biz ularni toifalar bo'yicha guruhladik
+                <p>
+                    {t("category_text")}
                 </p>
             </div>
             <div className={styles.contentBox}>
@@ -26,25 +28,25 @@ const Category = () => {
                     onClick={() => FilterItem("Ko`p qavatli")}
                 >
                     <img src="/cards/room.png" alt="" />
-                    <h5>Ko’p qavatli</h5>
+                    <h5>{t("multi_storey")}</h5>
                 </div>
                 <div className={styles.content}
                     onClick={() => FilterItem("Hovli")}
                 >
                     <img src="/cards/hovli.png" alt="" />
-                    <h5>Hovli</h5>
+                    <h5>{t("yard")}</h5>
                 </div>
                 <div className={styles.content}
                     onClick={() => FilterItem("Ofis")}
                 >
                     <img src="/cards/ofis.png" alt="" />
-                    <h5>Ofis</h5>
+                    <h5>{t("ofice")}</h5>
                 </div>
                 <div className={styles.content}
                     onClick={() => FilterItem("Dam olish")}
                 >
                     <img src="/cards/dam-olish.png" alt="" />
-                    <h5>Dam olish</h5>
+                    <h5>{t("rest")}</h5>
                 </div>
             </div>
         </div >

@@ -1,3 +1,4 @@
+import { t } from 'i18next'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import styles from "./footer.module.css"
@@ -10,8 +11,7 @@ const Footer = () => {
                 <div className={styles.title}>
                     <h1 onClick={() => route.push("/")}>Roooms</h1>
                     <p>
-                        Enjoy by triping <br />
-                        with Travelint.
+                        {t("footer_text")}
                     </p>
                 </div>
                 <div className={styles.socialBox}>
@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className={styles.producer}>
-                <p>2023 (c)-Rooms. All Rights Reserved </p>
+                <p>2023 (c)-Roooms. {t("reserved")}</p>
             </div>
         </div>
     )

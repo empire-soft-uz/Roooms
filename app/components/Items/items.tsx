@@ -7,9 +7,11 @@ import ItemComponent from '../ItemComponent/itemComponent'
 import styles from "./items.module.css"
 import { ItemsData } from '../../allData'
 import { useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 
 
 const Items = () => {
+    const { t } = useTranslation()
     const { SetOneRoomItem } = useRootStore().itemStore
     const router = useRouter()
     const ShowItemInfo = (e: any) => {
@@ -20,10 +22,10 @@ const Items = () => {
     return (
         <>
             <div className={styles.header}>
-                <h1>Ommabop qidiruvlar</h1>
+                <h1>{t("Popular_searches")}</h1>
                 <Link href={"/allItems"} style={{ color: "#000" }} >
                     <div className={styles.more}>
-                        <p>Barchasini ko’rish</p>
+                        <p>{t("see_all")}</p>
                         <img src="/icons/right-arrow.svg" alt="" />
                     </div>
                 </Link>

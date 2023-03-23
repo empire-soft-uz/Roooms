@@ -1,23 +1,21 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import Button from '../Button/button'
 import ContactForm from '../ContactForm/contactForm'
 import styles from "./contact.module.css"
 
 const Contact = () => {
+    const { t } = useTranslation()
     return (
         <div className={styles.container} id="contact">
             <div className={styles.headerBox}>
-                <h1>Biz bilan bog’lanish</h1>
+                <h1>{t("contact_us")}</h1>
             </div>
             <div className={styles.content}>
                 <div className={styles.leftBox}>
-                    <h1>Контакт</h1>
+                    <h1>{t("contact")}</h1>
                     <p className={styles.text}>
-                        <strong style={{ color: "#000", fontWeight: "400" }}>Handmade</strong> - это маркетплейс авторских туров от тревел-экспертов
-                        и частных независимых гидов. Авторские туры — это спонтанные и яркие
-                        возможности, предлагающие взять максимум от каждой точки маршрута.
-                        Мы за непринужденный подход к групповым путешествиям,
-                        который больше похож на встречу со старыми друзьями.
+                        {t("contact_us_text")}
                     </p>
                     <div className={styles.info}>
                         <div className={styles.iconBox}>
