@@ -143,9 +143,9 @@
     }
     .aboveBox{
         grid-template-columns: 1fr;
-        height: 42vh;
+        height: 40vh;
         width: 70%;
-        bottom: 5vh;
+        bottom: 8vh;
         /* padding: 30px; */
     }
     .box{
