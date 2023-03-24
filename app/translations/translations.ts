@@ -8,6 +8,8 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import uz from "./uz.json";
 import ru from "./ru.json";
 
+const setLng = localStorage.getItem("i18nextLng")
+
 i18n
   .use(LanguageDetector)
   .use(backend)
@@ -15,7 +17,7 @@ i18n
   .init({
     debug: true,
     updateMissing: true,
-    fallbackLng: "uz",
+    fallbackLng: `${setLng}`,
     interpolation: {
       escapeValue: false,
     },

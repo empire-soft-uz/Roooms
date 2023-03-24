@@ -9,7 +9,7 @@
     width: 90%;
     height: 100%;
     background-color: #fff;
-    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -28,6 +28,8 @@
     height: 45px;
     border-radius: 5px;
     box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15) !important;
+    -webkit-box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
+    -webkit-appearance: none;
 
 }
 .formBox textarea {
@@ -36,6 +38,8 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15) !important;
+    -webkit-box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
+    -webkit-appearance: none;
 } 
 
 .formBox button:hover{
@@ -91,7 +95,7 @@
         width: 90%;
         height: 100%;
         /* background-color: #F9FBFF; */
-        box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0px 4px 45px -15px rgba(0, 0, 0, 0.15);
         border-radius: 25px;
         display: flex;
         flex-direction: column;

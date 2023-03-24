@@ -10,12 +10,14 @@ enableStaticRendering(isServer);
 import { unstable_batchedUpdates } from "react-dom"; // or react-native
 import VisibleStore from "./VisibleStore"
 import ContactStore from "./Contact"
+import LanguageStore from "./language"
 mobx.configure({ reactionScheduler: unstable_batchedUpdates });
 
 export class AppRootStore{
     itemStore = new ItemStore()
     visibleStore = new VisibleStore()
     contactStore = new ContactStore()
+    language = new LanguageStore()
 
     constructor() {
         makeAutoObservable(this)
