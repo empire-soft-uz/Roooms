@@ -1,3 +1,4 @@
+import { CategoryData } from 'app/[lang]/category'
 import useRootStore from 'app/[lang]/hooks/useRootStore'
 import { useLocale, useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
@@ -8,10 +9,10 @@ const Category = () => {
     const t = useTranslations('home');
     const locale = useLocale();
     const router = useRouter()
-    const { setItem } = useRootStore().itemStore
+    const { categoryFilter } = useRootStore().category
     function FilterItem(value: any) {
-        setItem(value, 'type')
-        router.push(`${locale}/allItems`)
+        router.push(`${locale}/category/${value}`)
+        categoryFilter(value)
     }
     return (
         <div className={styles.container}>
@@ -26,25 +27,25 @@ const Category = () => {
             </div>
             <div className={styles.contentBox}>
                 <div className={styles.content}
-                    onClick={() => FilterItem("Ko`p qavatli")}
+                    onClick={() => FilterItem(CategoryData[0].key)}
                 >
                     <img src="/cards/room.png" alt="" />
                     <h5>{t("multi_storey")}</h5>
                 </div>
                 <div className={styles.content}
-                    onClick={() => FilterItem("Hovli")}
+                    onClick={() => FilterItem(CategoryData[1].key)}
                 >
                     <img src="/cards/hovli.png" alt="" />
                     <h5>{t("yard")}</h5>
                 </div>
                 <div className={styles.content}
-                    onClick={() => FilterItem("Ofis")}
+                    onClick={() => FilterItem(CategoryData[2].key)}
                 >
                     <img src="/cards/ofis.png" alt="" />
                     <h5>{t("ofice")}</h5>
                 </div>
                 <div className={styles.content}
-                    onClick={() => FilterItem("Dam olish")}
+                    onClick={() => FilterItem(CategoryData[3].key)}
                 >
                     <img src="/cards/dam-olish.png" alt="" />
                     <h5>{t("rest")}</h5>

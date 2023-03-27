@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { useTranslations } from 'next-intl';
 
 const DropDown = () => {
-    const { oneItem, setItem } = useRootStore().itemStore
+    const { setItem } = useRootStore().itemStore
     const t = useTranslations('home');
 
     return (
@@ -17,10 +17,10 @@ const DropDown = () => {
             }}
                 onChange={(e) => setItem(e.target.value, "type")}
             >
-                <option value="Ko'p qavatli">{t("multi_storey")}</option>
-                <option value="Hovli">{t("yard")}</option>
-                <option value="Ofis">{t("ofice")}</option>
-                <option value="Dam olish">{t("rest")}</option>
+                <option value="multi_storey">{t("multi_storey")}</option>
+                <option value="yard">{t("yard")}</option>
+                <option value="ofice">{t("ofice")}</option>
+                <option value="rest">{t("rest")}</option>
             </select>
         </div>
     )

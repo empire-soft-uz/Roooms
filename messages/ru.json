@@ -11,6 +11,7 @@
         "location": "Адрес",
         "type": "Тип",
         "rooms": "Номера",
+        "room": "Номер",
         "search_by_location": "Введите местоположение",
         "multi_storey": "Многоэтажный",
         "category": "Департаменты",

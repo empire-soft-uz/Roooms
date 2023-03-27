@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, runInAction, toJS } from "mobx";
 import { ItemsData, ItemsType } from "../allData";
 export type ItemType = {
     address: string;
@@ -19,9 +19,11 @@ const initialState = {
         }
     ],
     for: "",
+    forKey: "",
     name: "",
     price: "",
     type: "",
+    typeKey: "",
     size: "",
     many: "",
     floor: "",
@@ -74,7 +76,7 @@ export default class ItemStore {
     }
 
     isLoading: boolean = true
-    data: any = []
+    data: ItemsType[] = []
     AllProducts: ItemsType[] = ItemsData
 
     oneRoomItemData: ItemsType = initialState
@@ -83,7 +85,7 @@ export default class ItemStore {
     
     oneItem: ItemType = {
         address: "",
-        type: '',
+        type: "multi_storey",
         roomCount: 0,
     }
 
@@ -103,15 +105,13 @@ export default class ItemStore {
 
     getOneRoomItem = async (id?:string) => {
         this.isLoading = true
-         if (id) {
-            console.log('id', id);            
+         if (id) {           
             this.oneRoomItemData = ItemsData.find((item: any) => item.id == id) as ItemsType
              if (!this.oneRoomItemData) {
                 this.oneRoomItemData = initialState
                 this.message = 'Bunday malumot mavjud emas'
             }
-        } else {
-            console.log('else');            
+        } else {          
             this.oneRoomItemData = ItemsData[0]
         }
         this.isLoading = false
@@ -132,7 +132,14 @@ export default class ItemStore {
     filterData = () => {
         runInAction(() => {
             this.data = [],
-                this.data = ItemsData.filter((item) => item.type === this.oneItem.type)
+            this.data = ItemsData.filter((item) => item.typeKey === this.oneItem.type)
+        })
+    }
+
+    filter = (key:string) => {
+        this.filterData()
+        runInAction(() => {
+            this.data = this.data.filter((item) => item.forKey === key)
         })
     }
 

@@ -13,7 +13,7 @@ const Counter = () => {
                 <img style={{ marginBottom: "5px" }} src="/icons/minus.svg" alt="" />
             </span>
             <span style={{ fontSize: "13px" }}>
-                {oneItem.roomCount === 0 ? t("add_room") : oneItem.roomCount + t("room")}
+                {oneItem.roomCount === 0 ? t("add_room") : oneItem.roomCount + " " + t("room")}
             </span>
             <span className={styles.calcu} onClick={() => setItem(Number(oneItem.roomCount) + 1, 'roomCount')}>
                 <img src="/icons/plus.svg" alt="" />

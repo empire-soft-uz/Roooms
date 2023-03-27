@@ -11,6 +11,7 @@
         "location": "Manzil",
         "type": "Turi",
         "rooms": "Xonalar",
+        "room":"xona",
         "search_by_location": "Joylashgan manzilini yozing",
         "multi_storey": "Ko'p qavatli",
         "category": "Bo'limlar",

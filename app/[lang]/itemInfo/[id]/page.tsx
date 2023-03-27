@@ -28,12 +28,10 @@ import styles from "./itemInfo.module.css"
 const ItemInfo = ({
     params: { id },
 }: {
-        params: { id: string },
+    params: { id: string },
 }) => {
     const t = useTranslations('home');
     const { oneRoomItemData, getOneRoomItem, isLoading, message } = useRootStore().itemStore
-
-    console.log(toJS(oneRoomItemData));
 
     useEffect(() => {
         getOneRoomItem(id)
@@ -56,14 +54,14 @@ const ItemInfo = ({
         )
     } else if (!isLoading && message) {
         return (
-        <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-            fontSize: "20px",
-            fontWeight: "bold"
-        }}>
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh",
+                fontSize: "20px",
+                fontWeight: "bold"
+            }}>
                 {message}
             </div>
         )

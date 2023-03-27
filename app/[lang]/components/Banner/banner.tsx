@@ -10,10 +10,11 @@ import styles from "./banner.module.css"
 const Banner = () => {
     const t = useTranslations('home');
     const locale = useLocale();
-    const { setItem } = useRootStore().itemStore
+    const { setItem, filterData } = useRootStore().itemStore
     const router = useRouter()
     function SearRoomNavigation() {
-        router.push(`${locale}/allItems`)
+        router.push(`${locale}/filterItems`)
+        filterData()
     }
     return (
         <div className={styles.container}>

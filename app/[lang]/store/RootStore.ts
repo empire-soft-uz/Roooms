@@ -11,6 +11,7 @@ import { unstable_batchedUpdates } from "react-dom"; // or react-native
 import VisibleStore from "./VisibleStore"
 import ContactStore from "./Contact"
 import LanguageStore from "./language"
+import CategoryStore from "./category"
 mobx.configure({ reactionScheduler: unstable_batchedUpdates });
 
 export class AppRootStore{
@@ -18,6 +19,7 @@ export class AppRootStore{
     visibleStore = new VisibleStore()
     contactStore = new ContactStore()
     language = new LanguageStore()
+    category = new CategoryStore()
 
     constructor() {
         makeAutoObservable(this)
