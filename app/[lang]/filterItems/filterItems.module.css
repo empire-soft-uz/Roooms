@@ -1,34 +1,40 @@
  .content{
-        display: grid;
-        margin: 20px 7%;
-        grid-template-columns: 1fr 1fr;
-        min-height: 45vh;
-    }
+    display: grid;
+    margin: 20px 7%;
+    grid-template-columns: 1fr 1fr;
+    min-height: 45vh;
+}
+.category{
+    margin: 30px 5%;
+    margin-top: 10vh;
+    padding-top: 20px;
+}
 
-    .category{
-        margin: 30px 5%;
-        margin-top: 10vh;
-        padding-top: 20px;
-    }
+.category h1 {
+    font-weight: 500;
+}
 
-    .category h1 {
-        font-weight: 500;
-    }
-
-    .filter {
-        margin-top: 30px;
-    }
-
-    .filter button {
-        padding: 10px 25px;
-        background-color: #fff;
-        border: 1px solid #AEAEAE;
-        color: #AEAEAE;
-        border-radius: 15px;
-        margin-right: 20px;
-        cursor: pointer;
-        margin-top: 5px;
-    }
+.filter {
+    margin-top: 30px;
+}
+.activeBtn {
+    padding: 10px 25px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 15px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.inActiveBtn{
+    background-color: #fff;
+    color: #AEAEAE;
+    border: 1px solid #AEAEAE;
+    border-radius: 15px;
+    margin-right: 20px;
+    cursor: pointer;
+    padding: 10px 25px;
+}
 
 @media (min-width: 120px) {
     .content{
@@ -63,13 +69,22 @@
         margin-top: 30px;
     }
 
-    .filter button {
+    .activeBtn {
         padding: 10px 25px;
-        background-color: #fff;
+        background-color: #000;
+        color: #fff;
         border: 1px solid #AEAEAE;
-        color: #AEAEAE;
         border-radius: 15px;
         margin-right: 20px;
         cursor: pointer;
+    }
+    .inActiveBtn{
+        background-color: #fff;
+        color: #AEAEAE;
+        border: 1px solid #AEAEAE;
+        border-radius: 15px;
+        margin-right: 20px;
+        cursor: pointer;
+        padding: 10px 25px;
     }
 }

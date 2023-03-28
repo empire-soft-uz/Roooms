@@ -8,6 +8,8 @@ import { useState } from 'react'
 import Footer from '../components/Footer/footer'
 import Header from '../components/Header/header'
 import CardComponent from '../components/ItemComponent/itemComponent'
+import Loader from '../components/Loader/loader'
+import SmallLoader from '../components/SmallLoader/smallLoader'
 import Text from '../components/Text/text'
 import styles from "./filterItems.module.css"
 
@@ -16,17 +18,17 @@ const AllItems = ({
 }: {
     params: { lang: string }
 }) => {
-    const { AllProducts, SetOneRoomItem, data, filter } = useRootStore().itemStore;
-    const [backColor, setBackColor] = useState(Boolean)
+    const { AllProducts, SetOneRoomItem, data, isLoading } = useRootStore().itemStore;
     const t = useTranslations("home")
     const router = useRouter()
+    const [yourHouse, setYourHouse] = useState<{
+        type: "Sotiladi" | "Ijaraga" | "all",
+        isFilter: boolean
+    }>({ isFilter: false, type: "all" })
+
     const ShowItemInfo = (e: any) => {
         router.push(`${lang}/itemInfo/${e.id}`)
         SetOneRoomItem(e)
-    }
-    const SortItem = (e: any) => {
-        filter(e)
-        console.log("eeeeee", e);
     }
     return (
         <>
@@ -34,13 +36,36 @@ const AllItems = ({
             <div className={styles.category}>
                 <h1>{t("category_you_choosed")}</h1>
                 <div className={styles.filter}>
-                    <button style={{ backgroundColor: backColor ? "#000" : "#fff", color: backColor ? "#fff" : "#000" }} onClick={() => SortItem("Sotiladi")}>{t("sold")}</button>
-                    <button onClick={() => SortItem("Ijaraga")}>{t("for_rent")}</button>
+                    <button
+                        className={yourHouse.type === "Sotiladi" ? styles.activeBtn : styles.inActiveBtn}
+                        onClick={() => setYourHouse({
+                            isFilter: true,
+                            type: "Sotiladi"
+                        })}>{t("sold")}
+                    </button>
+                    <button
+                        className={yourHouse.type === "Ijaraga" ? styles.activeBtn : styles.inActiveBtn}
+                        onClick={() => setYourHouse({
+                            isFilter: true,
+                            type: "Ijaraga"
+                        })}>{t("for_rent")}
+                    </button>
+                    <button
+                        className={yourHouse.isFilter ? styles.inActiveBtn : styles.activeBtn}
+                        onClick={() => setYourHouse({
+                            isFilter: false,
+                            type: "all"
+                        })}>{t("all")}
+                    </button>
                 </div>
             </div>
             <div className={styles.content} >
                 {data?.length > 0 ?
-                    data?.map((e: any, index: number) => {
+                    data?.filter(i => {
+                        if (!yourHouse.isFilter) return true;
+
+                        return i.forKey === yourHouse.type;
+                    }).map((e: any, index: number) => {
                         return (
                             <CardComponent
                                 onPress={() => ShowItemInfo(e as never)}
@@ -59,8 +84,7 @@ const AllItems = ({
                         )
                     })
                     :
-                    <Text text={`${t("nothing_found")}`} />
-                }
+                    <Text text={`${t("nothing_found")}`} />}
             </div>
             <Footer />
         </>

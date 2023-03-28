@@ -41,6 +41,7 @@
         "view_on_the_map": "Посмотреть на карте",
         "review": "Обзор",
         "booking": "Бронирование",
-        "all_amenities": "Все удобства"
+        "all_amenities": "Все удобства",
+        "all": "Все"
     }
 }

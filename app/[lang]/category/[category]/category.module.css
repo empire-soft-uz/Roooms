@@ -19,16 +19,24 @@
         margin-top: 30px;
     }
 
-    .filter button {
-        padding: 10px 25px;
-        background-color: #fff;
-        border: 1px solid #AEAEAE;
-        color: #AEAEAE;
-        border-radius: 15px;
-        margin-right: 20px;
-        cursor: pointer;
-        margin-top: 5px;
-    }
+   .activeBtn {
+    padding: 10px 25px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 15px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.inActiveBtn{
+    background-color: #fff;
+    color: #AEAEAE;
+    border: 1px solid #AEAEAE;
+    border-radius: 15px;
+    margin-right: 20px;
+    cursor: pointer;
+    padding: 10px 25px;
+}
 
 @media (min-width: 120px) {
     .content{
@@ -63,13 +71,22 @@
         margin-top: 30px;
     }
 
-    .filter button {
-        padding: 10px 25px;
-        background-color: #fff;
-        border: 1px solid #AEAEAE;
-        color: #AEAEAE;
-        border-radius: 15px;
-        margin-right: 20px;
-        cursor: pointer;
-    }
+   .activeBtn {
+    padding: 10px 25px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 15px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.inActiveBtn{
+    background-color: #fff;
+    color: #AEAEAE;
+    border: 1px solid #AEAEAE;
+    border-radius: 15px;
+    margin-right: 20px;
+    cursor: pointer;
+    padding: 10px 25px;
+}
 }

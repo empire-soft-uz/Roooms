@@ -1,5 +1,6 @@
 'use client'
 
+import Loader from 'app/[lang]/components/Loader/loader'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useTranslations } from 'next-intl'
@@ -24,6 +25,7 @@ import Text from '../../components/Text/text'
 import Title from '../../components/Title/title'
 import useRootStore from '../../hooks/useRootStore'
 import styles from "./itemInfo.module.css"
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const ItemInfo = ({
     params: { id },
@@ -43,14 +45,7 @@ const ItemInfo = ({
 
     if (isLoading) {
         return (
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100vh",
-                fontSize: "20px",
-                fontWeight: "bold"
-            }}>Loading...</div>
+            <Loader />
         )
     } else if (!isLoading && message) {
         return (

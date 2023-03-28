@@ -114,7 +114,9 @@ export default class ItemStore {
         } else {          
             this.oneRoomItemData = ItemsData[0]
         }
-        this.isLoading = false
+        setTimeout(() => {
+            this.isLoading = false
+        }, 800)
     }
 
     setItem = (value: string | number, key: keyof ItemType) => {
@@ -135,13 +137,5 @@ export default class ItemStore {
             this.data = ItemsData.filter((item) => item.typeKey === this.oneItem.type)
         })
     }
-
-    filter = (key:string) => {
-        this.filterData()
-        runInAction(() => {
-            this.data = this.data.filter((item) => item.forKey === key)
-        })
-    }
-
 }
 

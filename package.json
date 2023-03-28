@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@adobe/react-spectrum": "3.19.0",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@react-spectrum/datepicker": "^3.4.0",
     "@types/node": "18.14.1",
     "@types/react": "18.0.28",
