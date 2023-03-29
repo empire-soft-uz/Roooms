@@ -106,7 +106,7 @@ const ItemInfo = ({
                         />
                         <MoreBtn onPress={() => show("moreText")} title={`${t("see_all")}`} style={{ marginTop: "20px" }} />
                         <RowItem
-                            title={oneRoomItemData.location ? oneRoomItemData.location : "Camchatka, Russia"}
+                            title={oneRoomItemData.location.length > 25 ? oneRoomItemData.location.slice(0, 22) + `...` : oneRoomItemData.location}
                             leftUrl="/icons/place.svg"
                             text={`${t("view_on_the_map")}`}
                             style={{ marginTop: "20px" }}

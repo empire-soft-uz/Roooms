@@ -2,6 +2,7 @@ import React from 'react'
 import useRootStore from 'app/[lang]/hooks/useRootStore';
 import { observer } from 'mobx-react-lite';
 import { useTranslations } from 'next-intl';
+import styles from "./styles.module.css"
 
 const DropDown = () => {
     const { setItem } = useRootStore().itemStore
@@ -9,12 +10,7 @@ const DropDown = () => {
 
     return (
         <div>
-            <select name="Turni tanlang" style={{
-                border: "none", outline: "none",
-                width: "150px",
-                color: "#AEAEAE",
-                cursor: "pointer"
-            }}
+            <select className={styles.select} name="Turni tanlang"
                 onChange={(e) => setItem(e.target.value, "type")}
             >
                 <option value="multi_storey">{t("multi_storey")}</option>
