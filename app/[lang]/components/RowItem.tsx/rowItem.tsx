@@ -7,6 +7,8 @@ interface Props {
     text?: string;
     style?: CSSProperties;
     clickBtn?: () => void;
+    linkUrl?: string;
+    a_target?: string;
 }
 
 const RowItem: React.FC<Props> = ({
@@ -14,7 +16,9 @@ const RowItem: React.FC<Props> = ({
     title,
     text,
     style,
-    clickBtn
+    clickBtn,
+    linkUrl,
+    a_target
 }) => {
     return (
         <div className={styles.container} style={{ ...style }}>
@@ -22,7 +26,7 @@ const RowItem: React.FC<Props> = ({
                 <img src={leftUrl} alt="" />
                 <p>{title}</p>
             </div>
-            <MoreBtn title={text} onPress={clickBtn} />
+            <MoreBtn linkUrl={linkUrl} a_target={a_target} title={text} onPress={clickBtn} />
         </div>
     )
 }

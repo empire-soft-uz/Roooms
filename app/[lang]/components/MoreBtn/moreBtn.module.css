@@ -5,6 +5,11 @@
     cursor: pointer;
 }
 
+.linkBox {
+    text-decoration: none;
+    color: #000;
+}
+
 .box p{
     border-bottom: 1px solid #000;
     font-size: 14px;

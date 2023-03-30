@@ -26,6 +26,7 @@ import Title from '../../components/Title/title'
 import useRootStore from '../../hooks/useRootStore'
 import styles from "./itemInfo.module.css"
 import { Player } from '@lottiefiles/react-lottie-player';
+import { useRouter } from 'next/navigation'
 
 const ItemInfo = ({
     params: { id },
@@ -38,7 +39,7 @@ const ItemInfo = ({
     useEffect(() => {
         getOneRoomItem(id)
     }, [])
-
+    const route = useRouter()
     const { show } = useRootStore().visibleStore
     const { dayCount } = useRootStore().itemStore
     var total = dayCount.day * Number(oneRoomItemData.price as any)
@@ -110,6 +111,8 @@ const ItemInfo = ({
                             leftUrl="/icons/place.svg"
                             text={`${t("view_on_the_map")}`}
                             style={{ marginTop: "20px" }}
+                            a_target="_blank"
+                            linkUrl="https://yandex.com/maps/?rtext=41.285108%2C69.258245~41.288492%2C69.167078&rtt=mt"
                         />
                         <Button title={`${t("review")}`} />
                     </div>
