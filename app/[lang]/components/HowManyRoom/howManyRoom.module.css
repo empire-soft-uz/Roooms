@@ -1,5 +1,6 @@
 .box{
     display: flex;
+    flex-wrap: wrap;
     margin: 3px 0;
     align-items: center;
     padding: 8px 0;

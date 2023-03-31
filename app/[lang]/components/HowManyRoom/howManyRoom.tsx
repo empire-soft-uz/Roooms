@@ -1,29 +1,36 @@
+import { useTranslations } from 'next-intl'
 import React from 'react'
 import styles from "./howManyRoom.module.css"
 
 interface Props {
-    room?: string;
-    kitchen?: string;
-    bedroom?: string;
-    hall?: string;
+    rooms: {
+        rooms: number,
+        itemRoomsKeys: string
+    }[]
 }
 
 const HowManyRoom: React.FC<Props> = ({
-    room,
-    kitchen,
-    bedroom,
-    hall
+    rooms
 }) => {
+
+    const t = useTranslations()
+
     return (
+
         <div className={styles.box}>
-            <p>{room}</p>
-            <div className={styles.dot}></div>
-            <p>{kitchen}</p>
-            <div className={styles.dot}></div>
-            <p>{bedroom}</p>
-            <div className={styles.dot}></div>
-            <p>{hall}</p>
+            {rooms.map((e, index) => {
+                return (
+                    <>
+                        <p>{e.rooms}</p>
+                        <p>{t(`${e.itemRoomsKeys}`)}</p>
+                        {
+                            index === rooms.length - 1 ? null : <div className={styles.dot}></div>
+                        }
+                    </>
+                )
+            })}
         </div>
+
     )
 }
 

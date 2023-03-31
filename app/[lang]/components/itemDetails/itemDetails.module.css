@@ -1,0 +1,29 @@
+.centerBox {
+    display: flex;
+    justify-content: space-betweeen;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px 0;
+    color: #AEAEAE;
+}
+
+.infoBox{
+    width: 33.3%;
+    margin: 5px 0;
+}
+.center {
+    text-align: center;
+}
+.end {
+    text-align: end;
+}
+
+.info {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.square{
+    font-size: 8px;
+}

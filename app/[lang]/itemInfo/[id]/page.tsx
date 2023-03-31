@@ -27,6 +27,7 @@ import useRootStore from '../../hooks/useRootStore'
 import styles from "./itemInfo.module.css"
 import { Player } from '@lottiefiles/react-lottie-player';
 import { useRouter } from 'next/navigation'
+import ItemDetails from 'app/[lang]/components/itemDetails/itemDetails'
 
 const ItemInfo = ({
     params: { id },
@@ -86,10 +87,7 @@ const ItemInfo = ({
                     <div className={styles.rightBox}>
                         <Title title={oneRoomItemData.name} />
                         <HowManyRoom
-                            room={oneRoomItemData.room}
-                            kitchen={oneRoomItemData.kitchen}
-                            bedroom={oneRoomItemData.bedroom}
-                            hall={oneRoomItemData.hall}
+                            rooms={[]}
                         />
                         <h3>{oneRoomItemData.price + ` $ `}<span className={styles.time}> {oneRoomItemData.time ? ` / ` + oneRoomItemData.time : null}</span></h3>
                         {oneRoomItemData.squarePrice ?
@@ -101,11 +99,11 @@ const ItemInfo = ({
                             text={`${t("vendor_contacts")}`}
                             clickBtn={() => show("contact")}
                         />
-                        <Text
-                            style={{ marginTop: "15px", fontFamily: "NunitoSansLight" }}
-                            text={oneRoomItemData.text?.length >= 350 ? oneRoomItemData.text.slice(0, 347) + ` ...` : oneRoomItemData.text}
+                        <ItemDetails
+                            floor={oneRoomItemData.floor}
+                            many={oneRoomItemData.many}
+                            size={oneRoomItemData.size}
                         />
-                        <MoreBtn onPress={() => show("moreText")} title={`${t("see_all")}`} style={{ marginTop: "20px" }} />
                         <RowItem
                             title={oneRoomItemData.location.length > 25 ? oneRoomItemData.location.slice(0, 22) + `...` : oneRoomItemData.location}
                             leftUrl="/icons/place.svg"
@@ -187,8 +185,14 @@ const ItemInfo = ({
                                     title={oneRoomItemData.bike}
                                 />
                             </div>
+                            <Button onPress={() => show("amenities")} title={`${t("all_amenities")}`} style={{ backgroundColor: "#fff", fontSize: "16px", boxShadow: "none", border: "1px solid #000", color: "#000" }} />
                         </div>
-                        <Button onPress={() => show("amenities")} title={`${t("all_amenities")}`} style={{ backgroundColor: "#fff", fontSize: "16px", boxShadow: "none", border: "1px solid #000", color: "#000" }} />
+                        <Title title={`${t("place_offers")}`} style={{ marginTop: "30px" }} />
+                        <Text
+                            style={{ marginTop: "15px", fontFamily: "NunitoSansLight", fontSize: 15 }}
+                            text={oneRoomItemData.text?.length >= 350 ? oneRoomItemData.text.slice(0, 347) + ` ...` : oneRoomItemData.text}
+                        />
+                        <MoreBtn onPress={() => show("moreText")} title={`${t("see_all")}`} style={{ marginTop: "20px" }} />
                     </div>
                     <div className={styles.filter}>
                         {oneRoomItemData.for === "Dam olish" ?
