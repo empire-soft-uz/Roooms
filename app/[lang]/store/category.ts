@@ -14,20 +14,21 @@ type categoryType = {
     rest: string
 }
 
-export default class CategoryStore  {
+export default class CategoryStore {
     constructor() {
         makeAutoObservable(this)
     }
 
     data: ItemsType[] = []
     isLoading: boolean = true
-    message:string =""
+    message: string = ""
+    key: string = ""
 
-    getCateoryFilter = async(key: string) => {
+    getCateoryFilter = async (key: string) => {
         this.isLoading = true
-         if (key) {           
+        if (key) {
             this.data = ItemsData.filter((item: any) => item.typeKey == key)
-             if (!this.data) {
+            if (!this.data) {
                 this.message = 'Bunday malumot mavjud emas'
             }
         }
@@ -37,7 +38,7 @@ export default class CategoryStore  {
     categoryFilter = (key: string) => {
         runInAction(() => {
             this.data = [],
-            this.data = ItemsData.filter((item) => item.typeKey === key)
+                this.data = ItemsData.filter((item) => item.typeKey === key)
         })
         console.log(toJS(this.data));
     }

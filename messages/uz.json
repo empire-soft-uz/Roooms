@@ -43,5 +43,65 @@
         "booking": "Bron qilish",
         "all_amenities": "Barcha qulayliklar",
         "all": "Xammasi"
+    },
+    "itemCard": {
+        "typeKey" : {
+            "1": "Xona",
+            "2": "Ofis",
+            "3": "Dam olish",
+            "4": "Xovli"
+        }, 
+        "areaKey": "m",
+        "roomKey": "xona",
+        "floorKey": "qavat",
+        "storeyKey": {
+            "1" : "Sotiladi",
+            "2" : "Ijaraga",
+            "3" : "Dam olish"
+        }
+    },
+    "itemPage": {
+        "itemRoomsKeys" :{
+            "1": "xonali",
+            "2": "oshxona",
+            "3": "yotoqxona",
+            "4": "zal"
+        },
+        "areaKey": "m",
+        "roomKey": "xona",
+        "contact": "Kontaktlar",
+        "moreView": "Barchasini ko'rish",
+        "mapView": "Xaritadan ko'rish",
+        "itemSee": "Ko'rib chiqish",
+        "firstTema": "Asosiy sifatlari va qulayliklari",
+        "mainFeaturesKeys": {
+            "1": {
+                "title": "Butun uy",
+                "text": "Sizning xonangizni o'zingizni o'zgartirishingiz mumkin"
+            }
+        },
+        "mainFeatures": "Bu joy nimani taklif qiladi",
+        "additionalFeaturesKeys": {
+            "1": "Bog' ko'rinishi",
+            "2" : "Wi-fi",
+            "3" : "Konditsioner",
+            "4" : "Kir yuvish mashinasi",
+            "5" : "Uy hayvonlariga ruxsat",
+            "6" : "Muzlatgich",
+            "7" : "Oshxona",
+            "8" : "Quritgich",
+            "9" : "Xafsalik kameralari",
+            "10" : "Velosiped"
+        },
+        "additionalFeatures": "Barcha qulayliklar",
+        "name": "Ism",
+        "phone_number": "Telefon raqam",
+        "comment": "Izoh",
+        "enter_name": "Ismingizni kiriting",
+        "enter_comment": "Izoh qoldiring",
+        "send": "Jo'natish",
+        "hours" : "24 soat",
+        "total" : "Umumiy",
+        "buttonTitle": "Band qilish"
     }
 }

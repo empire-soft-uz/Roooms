@@ -293,3 +293,5 @@ export const ItemsData: ItemsType[] = [
         you can access the apartment by tram A and C and bus routes 27 and 44.`,
     },
 ]
+
+

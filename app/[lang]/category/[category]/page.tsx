@@ -47,7 +47,6 @@ const Category = ({
             {data?.length > 0 ?
                 data?.filter(i => {
                     if (!yourHouse.isFilter) return true;
-
                     return i.forKey === yourHouse.type;
                 }).map((e: any, index: number) => {
                     return (

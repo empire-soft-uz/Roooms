@@ -20,7 +20,7 @@ const Banner = () => {
         <div className={styles.container}>
             <div className={styles.imgBox}>
                 {/* <img src="/cards/bg1.png" alt="" /> */}
-                <iframe width="100%" height="640" frameBorder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowFullScreen scrolling="no" src="https://kuula.co/share/N6h5y?logo=1&info=1&fs=1&vr=0&zoom=1&sd=1&gyro=0&autorotate=0.75&thumbs=1"></iframe>
+                <iframe width="100%" height="640" frameBorder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowFullScreen scrolling="no" src="https://app.cloudpano.com/tours/F_bT4A587K?disable=logo,sound,ribbon,request,controls,leadgen,floorplan,watermark"></iframe>
             </div>
             <div className={styles.aboveBox}>
                 <div className={styles.box}>

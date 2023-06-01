@@ -1,13 +1,12 @@
 'use client'
 
-import React, { useEffect } from "react"
-import { ToastContainer } from "react-toastify"
+import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Banner from "./components/Banner/banner"
-import Category from "./components/Category/category"
-import Contact from "./components/Contact/contact"
-import Footer from "./components/Footer/footer"
-import Header from "./components/Header/header"
+import Banner from "./components/Banner/banner";
+import Category from "./components/Category/category";
+import Contact from "./components/Contact/contact";
+import Footer from "./components/Footer/footer";
+import Header from "./components/Header/header";
 import Items from "./components/Items/items";
 
 const App = () => {
